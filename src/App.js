@@ -35,22 +35,23 @@ function App() {
             gap: "1rem",
             alignItems: "flex-start",
           }}
-        ></div>
-        {budgets.map((budget) => {
-          const amount = getBudgetExpenses(budget.id).reduce(
-            (total, expense) => total + expense.amount,
-            0
-          );
-          return (
-            <BudgetCard
-              key={budget.id}
-              name={budget.name}
-              amount={amount}
-              max={budget.max}
-              onAddExpenseClick={() => openAddExpenseModal(budget.id)}
-            />
-          );
-        })}
+        >
+          {budgets.map((budget) => {
+            const amount = getBudgetExpenses(budget.id).reduce(
+              (total, expense) => total + expense.amount,
+              0
+            );
+            return (
+              <BudgetCard
+                key={budget.id}
+                name={budget.name}
+                amount={amount}
+                max={budget.max}
+                onAddExpenseClick={() => openAddExpenseModal(budget.id)}
+              />
+            );
+          })}
+        </div>
       </Container>
       <AddBudgetModal
         show={showAddBudgetModal}
