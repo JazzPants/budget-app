@@ -22,6 +22,7 @@ export default function AddExpenseModal({
       amount: parseFloat(amountRef.current.value),
       budgetId: budgetIdRef.current.value,
     });
+    handleClose();
   }
 
   return (
